@@ -1,0 +1,69 @@
+
+.sneakerName {
+    text-transform: uppercase;
+    color: blue
+}
+
+.thumbnail img  {
+    padding : 0 ;
+    width: 100%;
+}
+
+.thumbnail{
+    padding : 0 ;
+    
+}
+
+.well,.caption-full {
+    padding : 20px;
+}
+
+.navbar-default .navbar-brand {
+    
+    color:blue;
+}
+
+#footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+
+.pull-right {
+    padding-right: 20px;
+}
+
+#welcome {
+    font-family:'Satisfy', cursive; 
+}
+
+.mainbtn {
+   height: 100px;
+   width: 200px;
+
+}
+
+#postImage {
+    min-height: 40em;
+}
+.comments{
+    padding-top:10px;
+}
+
+.delete{
+    display:inline;
+}
+
+#moreInfo {
+    margin:auto;
+    width:50%;
+    display:block;
+}
+
+.thumbnail>img {
+    height:290px;
+}
+/*FOOD BUTTON*/ 
+
+
+/**/

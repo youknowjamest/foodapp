@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+               <h1>ARE YOU HUNGRY NOW?</h1>
+                <p> Food, one of the few things that mankind is good for. </p>
+                <a href="posts/new" class="btn btn-primary"> Add new food :)</a> 
+            </div>
+        </div>
+        
+        <div class="row" style="display:flex; flex-wrap:wrap">
+            
+            <% postsList.forEach(function(post){ %>
+        
+                <div class="thumbnail col-md-3 col-sm-6 text-center">
+                    <img class="post_picture" src="<%= post.image %>">
+                    <div class="caption">
+                        <%= post.name %>
+                        <a href="/posts/<%= post._id%>" class="btn btn-primary" id="moreInfo" > More info</a>
+                    </div>
+                    
+                </div>
+            <% });  %>
+            
+        </div>
+        
+        <a href="/"> BACK TO HOMEPAGE</a>
+    </div>
+<% include ../partials/footer %>
