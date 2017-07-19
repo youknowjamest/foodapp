@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "author": "James",
   "license": "ISC",
@@ -18,6 +18,7 @@
     "express-session": "^1.15.3",
     "method-override": "^2.3.9",
     "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "mongoose": "^4.11.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
