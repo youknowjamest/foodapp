@@ -20,9 +20,12 @@ var commentRoutes    = require("./routes/comments"),
 var flash = require("connect-flash");
 app.use(flash())
 
-//
+// mongoose.connect("mongodb://localhost/foodpage");
 
-mongoose.connect("mongodb://dreambeats:dreambeats@ds147882.mlab.com:47882/food");
+
+console.log(process.env.DATABASEURL)
+mongoose.connect(process.env.DATABASEURI);
+// mongoose.connect("mongodb://dreambeats:dreambeats@ds147882.mlab.com:47882/food");
 mongoose.Promise = global.Promise; //this is to remove an error msg, we arent using promises
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
