@@ -6,6 +6,10 @@ body{
     color: blue
 }
 
+nav{
+    font-family: 'Lemonada', cursive;
+}
+
 .thumbnail img  {
     padding : 0 ;
     width: 100%;
@@ -69,6 +73,16 @@ body{
 
 #descriptionText{
     height:200px;
+}
+
+#addFood{
+    text-transform: uppercase;
+    font-weight : 700;
+    
+}
+
+.postName {
+    font-family: 'Artifika', serif;
 }
 /*FOOD BUTTON*/ 
 

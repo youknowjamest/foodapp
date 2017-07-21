@@ -1,10 +1,12 @@
 <% include ../partials/header %>
+<link href="https://fonts.googleapis.com/css?family=Artifika" rel="stylesheet">
+
     <div class="container">
         <div class="jumbotron">
             <div class="container">
                <h1>ARE YOU HUNGRY NOW?</h1>
                 <p> Food, one of the few things that mankind is good for. </p>
-                <a href="posts/new" class="btn btn-primary"> Add new food :)</a> 
+                <a href="posts/new" class="btn btn-primary" id="addFood"> Add new food :)</a> 
             </div>
         </div>
         
@@ -15,7 +17,7 @@
                 <div class="thumbnail col-md-3 col-sm-6 text-center">
                     <img class="post_picture" src="<%= post.image %>">
                     <div class="caption">
-                        <%= post.name %>
+                        <span class="postName"><%= post.name %></span>
                         <a href="/posts/<%= post._id%>" class="btn btn-primary" id="moreInfo" > More info</a>
                     </div>
                     
