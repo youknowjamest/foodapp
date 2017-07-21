@@ -34,7 +34,7 @@ router.get("/login",function ( req, res) {
 	res.render("login")
 })
 
-router.post("/login", passport.authenticate("local" , { successReturnToOrRedirect:  "/posts", failureRedirect: "/login"}),  function( req, res){
+router.post("/login", passport.authenticate("local" , { successReturnToOrRedirect:  "/posts", failureRedirect: "/login", successFlash: "Welcome " +"!"}),  function( req, res){
 });
 
 router.get("/logout",function(req,res){
