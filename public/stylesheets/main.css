@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Oswald', sans-serif;
+}
 .sneakerName {
     text-transform: uppercase;
     color: blue
@@ -27,6 +29,7 @@
     position:fixed;
     bottom:0;
     width:100%;
+    
 }
 
 .pull-right {

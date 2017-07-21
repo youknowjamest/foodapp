@@ -1,0 +1,34 @@
+body{
+    font-family: 'Oswald', sans-serif;
+}
+#title{
+    text-align: center;
+    font-family:'Satisfy', cursive; 
+}
+
+#myPortrait{
+   border-radius: 8px;
+    height: 500px;
+}
+
+.thumbnailsize{
+    width:400px
+}
+
+h2 p {
+    font-size:0.7em;
+    margin-left: 40px
+}
+
+
+/*footer*/
+#footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+
+.pull-right {
+    padding-right: 20px;
+}
+/*footer*/

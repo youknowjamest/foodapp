@@ -14,6 +14,10 @@ router.get("/register",function(req,res){
 	res.render("register")
 })
 
+router.get("/about",function(req,res){
+    res.render("about")
+})
+
 router.post("/register",function(req,res){
     
     User.register(new User({username: req.body.username}), req.body.password, function(err,user){

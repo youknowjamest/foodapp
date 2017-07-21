@@ -1,0 +1,82 @@
+<!doctype HTML>
+
+<html>
+    <head>
+        <title>
+            Food !! 
+        </title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/about.css">
+        <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+                
+        
+            
+        
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default">
+            <div class="container-fluid"> 
+            	<div class="navbar-header">     
+            		<a href="/" class="navbar-brand">  Food!</a> 	
+            	</div>
+    	
+        		<ul class="nav navbar-nav" >	                 
+        			<li><a href="/"> About</a></li>
+        			<li><a href="/"> Contact</a></li>
+        		</ul>
+        
+        
+        		<ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+        		       <% if(!currentUser){ %>
+                            <li><a href="/login"> Login</a></li>
+                            <li><a href="/register"> Sign Up</a></li>
+                        <% } else { %>
+                	        <li> <a href="#">Signed In As <%= currentUser.username %></a></li>	
+                			<li><a href="/logout"> Logout</a></li>
+                       <% } %>
+        		    
+        		</ul>
+            </div>
+        </nav> 
+        
+       <div class="container">
+           
+           <% if(error && error.length>0){ %>
+                <div class="alert alert-danger" role="alert"><%= error %></div>
+          <% } %>
+       
+          <% if(success && success.length>0){ %>
+                <div class="alert alert-success" role="alert"><%= success %></div>
+          <% } %>
+     
+       </div> 
+        <!--content is below  -->
+        <div class="container">
+            <h1 id="title">Who Am I?</h1>
+            
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="thumbnail thumbnailsize">
+                        <img id="myPortrait" src="http://i.imgur.com/2ICgoLv.jpg">
+                    </div>
+                </div>
+                
+                <div class="col-md-7">
+                    <h2>
+                        <p>
+                           Hello guys! My name is James Tan Juan Whei and I am an aspiring new web developer! This is my first project and boy was it a handful, however I am glad that it is now the way it is and I shall continue improving it wherever possible.
+                        </p> 
+                        
+                        <p>
+                            As you guys can clearly see, I am a dog lover (despite the fact that I don't own one). I am also an avid member of the Leo Club, do follow my activities on <a href="https://www.facebook.com/youknowjamesT">Facebook</a>! 
+                        </p>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        
+        
+<% include partials/footer %>
