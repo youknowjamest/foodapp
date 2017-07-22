@@ -7,14 +7,32 @@ var middleware= require("../middleware")
 
 
 router.get("/",function(req,res){
-    Post.find({},function(err,posts){
-        if(err){
-            console.log(err)
-        } else {
-         res.render("posts/posts",{postsList:posts})
-    //   res.send(posts)
-        }
-    })
+    var noMatch=null;
+    if(req.query.search){
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi'); 
+        Post.find({name:regex},function(err,posts){
+            if(err){
+                console.log(err)
+            }   
+            
+            else{
+                if(posts.length<1){
+                    noMatch="Your search query did not return any results!"
+                    console.log(noMatch)
+                };
+                
+                res.render("posts/posts",{postsList:posts , noMatch:noMatch})  
+            }
+        })  
+    }   else {
+            Post.find({},function(err,posts){
+                if(err){
+                    console.log(err)
+                } else {
+                 res.render("posts/posts",{postsList:posts , noMatch:noMatch})
+                }    
+            })
+    }
 })
 
 router.get("/new",ensureLoggedIn('/login'), function(req,res){
@@ -90,5 +108,9 @@ router.delete("/:id",middleware.checkPostOwnership,function(req,res){
 
 
 //////////////////
+function escapeRegex(text) { 
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&"); 
+}; 
+
 
 module.exports = router;

@@ -29,6 +29,7 @@ nav{
     color:blue;
 }
 
+/*footer*/
 #footer {
     position:fixed;
     bottom:0;
@@ -39,6 +40,11 @@ nav{
 .pull-right {
     padding-right: 20px;
 }
+
+/*#backHomepage{*/
+/*    margin-bottom:30px;*/
+/*}*/
+/*footer*/
 
 #welcome {
     font-family:'Satisfy', cursive; 

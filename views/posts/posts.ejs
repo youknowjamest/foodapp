@@ -10,6 +10,24 @@
             </div>
         </div>
         
+        <div class="row">
+            <div class="text-center">
+                 <% if(noMatch!==null) { %>
+                <h1> <%= noMatch %></h1>
+                <p>
+        		  	<form action="/posts" method="GET" class="form-inline">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for food!" name="search" class="form-control"></textarea>
+                        
+                           <button class="btn btn-default"> Search</button> 
+                        </div>
+                    </form>  
+		        </p>
+                <% } %>
+            </div>
+        </div>
+       
+        
         <div class="row" style="display:flex; flex-wrap:wrap">
             
             <% postsList.forEach(function(post){ %>
@@ -25,7 +43,5 @@
             <% });  %>
             
         </div>
-        
-        <a href="/"> BACK TO HOMEPAGE</a>
     </div>
 <% include ../partials/footer %>

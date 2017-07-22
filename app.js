@@ -21,7 +21,7 @@ var flash = require("connect-flash");
 app.use(flash())
 
 // mongoose.connect("mongodb://localhost/foodpage");
-mongoose.connect( process.env.DATABASEURI );
+mongoose.connect(process.env.DATABASEURI);
 // mongoose.connect("mongodb://dreambeats:dreambeats@ds147882.mlab.com:47882/food");
 mongoose.Promise = global.Promise; //this is to remove an error msg, we arent using promises
 app.use(bodyParser.urlencoded({extended:true}));
@@ -56,3 +56,4 @@ app.listen(process.env.PORT,process.env.IP, function(){
 	console.log(" server has started!")
 })
 
+console.log(process.env.DATABASEURI)
