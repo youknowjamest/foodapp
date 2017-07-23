@@ -11,7 +11,7 @@ router.get("/",function(req,res){
 //AUTHENTICATION 
 
 router.get("/register",function(req,res){
-	res.render("register")
+	res.render("register",{page: 'register'})
 })
 
 router.get("/about",function(req,res){
@@ -35,7 +35,7 @@ router.post("/register",function(req,res){
 });
 
 router.get("/login",function ( req, res) {
-	res.render("login")
+	res.render("login",{page: 'login'})
 })
 
 router.post("/login", passport.authenticate("local" , { successReturnToOrRedirect:  "/posts", failureRedirect: "/login", successFlash: "Welcome " +"!"}),  function( req, res){

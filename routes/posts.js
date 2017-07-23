@@ -21,7 +21,7 @@ router.get("/",function(req,res){
                     console.log(noMatch)
                 };
                 
-                res.render("posts/posts",{postsList:posts , noMatch:noMatch})  
+                res.render("posts/posts",{postsList:posts , noMatch:noMatch,page:'posts'})  
             }
         })  
     }   else {
@@ -29,7 +29,7 @@ router.get("/",function(req,res){
                 if(err){
                     console.log(err)
                 } else {
-                 res.render("posts/posts",{postsList:posts , noMatch:noMatch})
+                 res.render("posts/posts",{postsList:posts , noMatch:noMatch,page:'posts'})
                 }    
             })
     }
