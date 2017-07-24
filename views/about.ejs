@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/stylesheets/about.css">
         <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lemonada" rel="stylesheet">
                 
         
             
@@ -17,34 +18,41 @@
     </head>
     <body>
         
-        <nav class="navbar navbar-default">
-            <div class="container-fluid"> 
-            	<div class="navbar-header">     
-            		<a href="/" class="navbar-brand">  Food!</a> 	
-            	</div>
-    	
-        		<ul class="nav navbar-nav" >	                 
-        			<li><a href="/"> About</a></li>
-        			<li><a href="/"> Contact</a></li>
-        		</ul>
+         <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
         
-        
-        		<ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-        		       <% if(!currentUser){ %>
-                            <li><a href="/login"> Login</a></li>
-                            <li><a href="/register"> Sign Up</a></li>
-                        <% } else { %>
-                	        <li> <a href="#">Signed In As <%= currentUser.username %></a></li>	
-                			<li><a href="/logout"> Logout</a></li>
-                       <% } %>
-        		    
-        		</ul>
+                    <a class="navbar-brand" href="/">Food!</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="<%= typeof page !== 'undefined' && page === 'posts' ? 'active' : '' %>"><a href="/posts">Home</a></li>
+                    <li class="<%= typeof page !== 'undefined' && page === 'about' ? 'active' : '' %>"><a href="/about">About</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <% if(!currentUser){ %>
+                          <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
+                          <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
+                      <% } else { %>
+                          <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                          <li><a href="/logout">Logout</a></li>
+                      <% } %>
+                  </ul>
+                </div>
             </div>
-        </nav> 
+        </nav>
+                
+<div class="container"> 
         
        <div class="container">
            
-           <% if(error && error.length>0){ %>
+          <% if(error && error.length>0){ %>
                 <div class="alert alert-danger" role="alert"><%= error %></div>
           <% } %>
        
@@ -77,6 +85,5 @@
                 </div>
             </div>
         </div>
-        
-        
+       
 <% include partials/footer %>

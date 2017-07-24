@@ -1,11 +1,19 @@
-body{
+h2 p{
     font-family: 'Oswald', sans-serif;
+     font-size:0.7em;
+    margin-left: 40px
 }
 #title{
     text-align: center;
     font-family:'Satisfy', cursive; 
 }
 
+nav{
+    font-family: 'Lemonada', cursive;
+}
+.navbar-default .navbar-brand {
+    color: blue;
+}
 #myPortrait{
    border-radius: 8px;
     height: 500px;
@@ -13,11 +21,6 @@ body{
 
 .thumbnailsize{
     width:400px
-}
-
-h2 p {
-    font-size:0.7em;
-    margin-left: 40px
 }
 
 

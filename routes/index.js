@@ -15,7 +15,7 @@ router.get("/register",function(req,res){
 })
 
 router.get("/about",function(req,res){
-    res.render("about")
+    res.render("about",{page:'about'})
 })
 
 router.post("/register",function(req,res){
