@@ -17,7 +17,7 @@
          
          <div class="caption-full">
           <h2 class="postName"> <%= post.name %> </h2>
-          <h4> <em>Posted by <%= post.author.username %></em> </h4>
+          <h4> <em>Posted by: <%= post.author.username %>, <%= moment(post.created).fromNow() %></em> </h4>
           <p> <%= post.description %> </p>
           <% if (currentUser && post.author.id.equals(currentUser._id)) { %>
            <a href="/posts/<%= post._id%>/edit" class="btn-warning btn btn-xs">
