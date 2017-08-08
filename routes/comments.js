@@ -40,8 +40,8 @@ router.post("/",ensureLoggedIn('/login'),function(req, res){
                comment.save();
                post.comments.push(comment);
                post.save();
-               
-               res.redirect('/posts/' + post._id);
+               res.json(comment);  
+            //res.redirect('/posts/' + post._id);
            }
         });
        };
@@ -60,16 +60,27 @@ router.get("/:commentID/edit",middleware.checkCommentOwnership,function(req,res)
     })
 })
 
-router.put("/:commentID",middleware.checkCommentOwnership,function(req,res){
-    Comment.findByIdAndUpdate(req.params.commentID,req.body.comment,function(err,updated){
+router.get("/",ensureLoggedIn('/login'),function(req,res){
+    Post.findById(req.params.id).populate("comments").exec(function(err,post){
         if(err){
-            res.redirect("back")
-        }   else{
-            res.redirect("/posts/"+req.params.id)
+            console.log(err);
+        } else {
+                res.render("posts/show",{post:post});
         }
-    })
+    });
+});
+
+router.put("/:commentID",middleware.checkCommentOwnership,function(req,res){
+    Comment.findByIdAndUpdate(req.params.commentID,req.body.comment,{ new: true },function(err,updated){
+        if(err){
+            res.redirect("back");
+        }   else{
+            // res.redirect("/posts/"+req.params.id);
+            res.json(updated);
+        }
+    });
   
-})
+});
 //////////////COMMENT REMOVE ROUTE
 router.delete("/:commentID",middleware.checkCommentOwnership,function(req,res){
     Comment.findByIdAndRemove(req.params.commentID,function(err){

@@ -59,9 +59,7 @@ nav{
 #postImage {
     min-height: 40em;
 }
-.comments{
-    padding-top:10px;
-}
+
 
 .delete{
     display:inline;
@@ -90,6 +88,32 @@ nav{
 .postName {
     font-family: 'Artifika', serif;
 }
+
+/*comment*/
+
+.comments{
+    padding-top:10px;
+    list-style-type: none;
+}
+
+.newComment{
+    margin-top:80px;
+    font-family: 'Anton', sans-serif;
+
+}
+
+.comments li {
+    margin-bottom: 25px
+}
+
+.edit-comment-form {
+    margin-top:10px;
+    display: none
+}
+
+
+/**/
+
 /*FOOD BUTTON*/ 
 
 

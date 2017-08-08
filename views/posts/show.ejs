@@ -33,34 +33,65 @@
       
        
       <div class="well"> 
-        <div class="text-right">
-         <a href="/posts/<%= post._id %>/comments/new" class="btn btn-primary ">Add New Comment</a>
-        </div>
-        <div class="comments">
-          <% post.comments.forEach(function(comment){ %>
-          <p>  
-             <strong>
-              
-              Submitted by <%= comment.author.username%> 
-              <span class="pull-right">
-               <%= comment.created %> 
-              </span>
-         
-             </strong> 
-            
-          </p>
         
-          <p> <%= comment.text %> </p> 
-          
-          <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
-            <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning"> Edit</a>
-            <form class="delete" action="/posts/<%= post._id%>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-             <button class="btn btn-xs btn-danger ">DELETE </button>
-            </form>
-           <% } %>
-           
+        <ul class="comments">
+          <% post.comments.forEach(function(comment){ %>
+              <li class="comment">
+                 <p>  
+                     <strong>
+                      Submitted by <%= comment.author.username%> 
+                      <span class="pull-right">
+                       <%= comment.created %> 
+                      </span>
+                     </strong> 
+                 </p>
+            
+                 <p> <%= comment.text %> </p> 
+              
+                  <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                    <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning edit-button"> Edit</a>
+                    <form class="delete" action="/posts/<%= post._id%>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                     <button class="btn btn-xs btn-danger ">DELETE </button>
+                    </form>
+                  <% } %> 
+                  <form action="/posts/<%= post._id %>/comments/<%=comment._id %>?_method=PUT" method="POST" class="edit-comment-form">
+                      <div class="row">
+                        <div class="form-group col-md-9">
+                            <textarea class="form-control" type="text" value="<%= comment.text %>" name="comment[text]"> <%= comment.text %> </textarea>
+                        </div>
+                        <div class="col-md-3">
+                           <button class="btn btn-lg btn-primary btn-block"> SUBMIT</button> 
+                        </div> 
+                      </div>
+                   </form>
+              </li>
+              
         <% }) %>
        
+        </ul>
+        
+        <div class="newComment">
+        <% if(currentUser){ %>    
+            <form id="new-comment-form" action="/posts/<%= post._id %>/comments" method="POST">
+                <label for="commentText">LEAVE A COMMENT: </label></label>
+                <div class="form-group">
+                    <textarea id="commentText" class="form-control" type="text" placeholder="Insert comment here!" name="comment[text]"></textarea>
+                </div>
+                
+                <div class="form-group">
+                   <button class="btn btn-lg btn-primary btn-block"> SUBMIT</button> 
+                </div>
+            </form>
+   
+        <% } else{ %>
+            <p>
+                You need to be logged in to add a comment!
+                <!--<a href="/posts/<%= post._id %>/comments">-->
+                <a href="/login">
+                    Login here !
+                </a>
+            </p>
+        <% } %>
         </div>
        
       </div>
