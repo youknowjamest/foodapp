@@ -87,8 +87,8 @@ router.delete("/:commentID",middleware.checkCommentOwnership,function(req,res){
         if(err){
             res.redirect("back")
         }   else {
-            req.flash("success","Comment was deleted.")
-            res.redirect("/posts/"+req.params.id)
+            // req.flash("success","Comment was deleted.")
+            // res.redirect("/posts/"+req.params.id)
         }
     })
 })

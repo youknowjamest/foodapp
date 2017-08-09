@@ -91,15 +91,15 @@ nav{
 
 /*comment*/
 
+
 .comments{
     padding-top:10px;
+    padding-left:0;
     list-style-type: none;
 }
 
 .newComment{
-    margin-top:80px;
     font-family: 'Anton', sans-serif;
-
 }
 
 .comments li {
@@ -107,7 +107,6 @@ nav{
 }
 
 .edit-comment-form {
-    margin-top:10px;
     display: none
 }
 

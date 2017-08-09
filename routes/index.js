@@ -48,8 +48,8 @@ router.get("/login",function(req, res,next) {
     	res.render("login",{page: 'login'})
 })
 
-// router.post("/login", passport.authenticate("local" , { successReturnToOrRedirect:  "/posts", failureRedirect: "/login", successFlash: "Welcome " +"!"}),  function( req, res){
-// });
+
+
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
